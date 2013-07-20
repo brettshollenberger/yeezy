@@ -95,7 +95,7 @@ Object.prototype.toNotInclude = function(what) {
 };
 
 Object.prototype.toMatch = function(what) {
-  if (this.match(what) == null) {
+  if (this.toString().match(what) == null) {
     return false;
   } else {
     return true;
@@ -106,12 +106,20 @@ Object.prototype.toHavePrototype = function(what) {
   return this.__proto__ == what.prototype;
 };
 
+Object.prototype.toNotHavePrototype = function(what) {
+  return this.__proto__ != what.prototype;
+};
+
 Object.prototype.toRespondTo = function(what) {
   return expect(this.__proto__).toInclude(what) || expect(this.prototype).toInclude(what);
 };
 
 Object.prototype.toNotRespondTo = function(what) {
-  return expect(this.__proto__).toNotInclude(what)
-}
+  return expect(this.__proto__).toNotInclude(what);
+};
+
+Object.prototype.toHaveProperty = function(what) {
+  return what in this;
+};
 
 

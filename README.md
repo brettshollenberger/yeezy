@@ -18,6 +18,16 @@ Returns true if the test object responds to a particular method:
     expect(testObject).toRespondTo('randomMethod');
     > false
 
+#### toHaveProperty
+
+Returns true if the test object has a particular property:
+
+    testObject = {
+      testProp: "test"
+    };
+    expect(testObject).toHaveProperty('testProp');
+    > true
+
 #### toNotRespondTo
 
 Returns true if the test object does not respond to a particular method. From this point forward, assume all positive methods (toRespondTo) have an equivalent negative method (toNotRespondTo).
@@ -45,15 +55,41 @@ Returns true if the object has a given prototype:
     expect(testObject).toHavePrototype(Object);
     > false // Primitive datatypes are not of type Object
 
+#### toMatch
+
+Returns true if the object matches a given regular expression:
+
+    testObject = 11;
+    expect(testObject).toMatch(/\d{2}/);
+    > true
+
 #### toEq
 
-Performs == operation
+Returns true if the object fulfills an == statement:
 
-#### toNotEq
+    testObject = 1;
+    expect(testObject).toEq(1);
+    > true
 
-Performs != operation:
+#### toBeGreaterThan/toBeLessThan
 
-  expect(testObject).toNotEq(2);
+Returns true if the object is greater than, less than, greater than or equal to, or less than or equal to:
 
-#### 
+    testObject = 1;
+    expect(testObject).toBeGreaterThanOrEqualTo(1);
+    > true
+
+    expect(testObject).toBeLessThan(0);
+    > false
+
+#### toBeTrue/toBeFalse
+
+Evaluates an object's truthiness. This evaluation does not necessarily mean the object == true:
+
+    testObject = 1;
+    expect(testObject).toBeTrue();
+    > true
+
+
+
 
