@@ -99,7 +99,7 @@ Returns true if in range:
   expect(testObject).toBeWithin(1, 10);
   > true
 
-#### toBeTruth/toBeFalsy
+#### toBeTruthy/toBeFalsy
 
 Evaluates an object's truthiness. This evaluation does not necessarily mean the object == true:
 
