@@ -28,13 +28,6 @@ Returns true if the test object has a particular property:
     expect(testObject).toHaveProperty('testProp');
     > true
 
-#### toNotRespondTo
-
-Returns true if the test object does not respond to a particular method. From this point forward, assume all positive methods (toRespondTo) have an equivalent negative method (toNotRespondTo).
-
-    expect(testObject).toNotRespondTo('randomMethod');
-    > true
-
 #### toInclude
 
 Returns true if object includes the passed argument:
@@ -95,9 +88,9 @@ Returns true if the object is greater than, less than, greater than or equal to,
 
 Returns true if in range:
 
-  testObject = 5;
-  expect(testObject).toBeWithin(1, 10);
-  > true
+    testObject = 5;
+    expect(testObject).toBeWithin(1, 10);
+    > true
 
 #### toBeTruthy/toBeFalsy
 
