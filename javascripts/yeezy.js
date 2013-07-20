@@ -22,3 +22,11 @@ Object.prototype.toBeFalse = function() {
   return this == false;
 };
 
+Object.prototype.toBeGreaterThan = function(what) {
+  return this > what;
+};
+
+Object.prototype.toBeLessThan = function(what) {
+  return this < what;
+};
+
