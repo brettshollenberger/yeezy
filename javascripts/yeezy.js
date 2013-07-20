@@ -90,6 +90,10 @@ Object.prototype.toInclude = function(what) {
   return what in this;
 };
 
+Object.prototype.toNotInclude = function(what) {
+  return !(what in this);
+};
+
 Object.prototype.toMatch = function(what) {
   if (this.match(what) == null) {
     return false;
@@ -105,5 +109,9 @@ Object.prototype.toHavePrototype = function(what) {
 Object.prototype.toRespondTo = function(what) {
   return expect(this.__proto__).toInclude(what) || expect(this.prototype).toInclude(what);
 };
+
+Object.prototype.toNotRespondTo = function(what) {
+  return expect(this.__proto__).toNotInclude(what)
+}
 
 
