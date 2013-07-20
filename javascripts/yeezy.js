@@ -11,15 +11,35 @@ Object.prototype.toNotEq = function(what) {
 };
 
 Object.prototype.toBeTrue = function() {
-  return this == true;
+  if (this) {
+    return true;
+  } else {
+    return false;
+  };
 };
 
 Object.prototype.toNotBeTrue = function() {
-  return this != true;
+  if (this) {
+    return false;
+  } else {
+    return true;
+  };
 };
 
 Object.prototype.toBeFalse = function() {
-  return this == false;
+  if (this) {
+    return false;
+  } else {
+    return true;
+  };
+};
+
+Object.prototype.toNotBeFalse = function() {
+  if (this) {
+    return true;
+  } else {
+    return false;
+  };
 };
 
 Object.prototype.toBeGreaterThan = function(what) {
@@ -80,4 +100,10 @@ Object.prototype.toMatch = function(what) {
 
 Object.prototype.toHavePrototype = function(what) {
   return this.__proto__ == what.prototype;
-}
+};
+
+Object.prototype.toRespondTo = function(what) {
+  return expect(this.__proto__).toInclude(what) || expect(this.prototype).toInclude(what);
+};
+
+
