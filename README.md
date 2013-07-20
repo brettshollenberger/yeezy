@@ -90,23 +90,23 @@ Returns true if in range:
   expect(testObject).toBeWithin(1, 10);
   > true
 
-#### toBeTrue/toBeFalse
+#### toBeTruth/toBeFalsy
 
 Evaluates an object's truthiness. This evaluation does not necessarily mean the object == true:
 
     testObject = 1;
-    expect(testObject).toBeTrue();
+    expect(testObject).toBeTruthy();
     > true
 
     testObject = 2;
-    expect(testObject).toBeTrue();
+    expect(testObject).toBeTruthy();
     > true
 
     testObject = 0;
     expect(testObject).toBeFalse();
     > true
 
-    expect("apple").toBeTrue();
+    expect("apple").toBeTruthy();
     > true
 
 

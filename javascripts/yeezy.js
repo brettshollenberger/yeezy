@@ -17,7 +17,7 @@ SpecObject.prototype.toNotEq = function(what) {
   return this.obj != what;
 };
 
-SpecObject.prototype.toBeTrue = function() {
+SpecObject.prototype.toBeTruthy = function() {
   if (this.obj) {
     return true;
   } else {
@@ -25,7 +25,7 @@ SpecObject.prototype.toBeTrue = function() {
   };
 };
 
-SpecObject.prototype.toNotBeTrue = function() {
+SpecObject.prototype.toNotBeTruthy = function() {
   if (this.obj) {
     return false;
   } else {
@@ -33,7 +33,7 @@ SpecObject.prototype.toNotBeTrue = function() {
   };
 };
 
-SpecObject.prototype.toBeFalse = function() {
+SpecObject.prototype.toBeFalsy = function() {
   if (this.obj) {
     return false;
   } else {
@@ -41,7 +41,7 @@ SpecObject.prototype.toBeFalse = function() {
   };
 };
 
-SpecObject.prototype.toNotBeFalse = function() {
+SpecObject.prototype.toNotBeFalsy = function() {
   if (this.obj) {
     return true;
   } else {
