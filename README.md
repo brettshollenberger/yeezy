@@ -9,7 +9,7 @@ Write your tests using the RSpec expect syntax:
     testObject = 1;
     expect(testObject).toEq(1);
 
-#### toRespondTo
+#### Duck Typing
 
 Returns true if the test object responds to a particular method:
 

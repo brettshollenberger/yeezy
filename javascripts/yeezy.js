@@ -113,4 +113,8 @@ SpecObject.prototype.toHaveProperty = function(what) {
   return what in this.obj;
 };
 
+SpecObject.prototype.toNotHaveProperty = function(what) {
+  return (!(what in this.obj));
+};
+
 
