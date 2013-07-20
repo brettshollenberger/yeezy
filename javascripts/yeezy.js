@@ -1,61 +1,61 @@
-Object.prototype.expect = function(what) {
-  return what;
+Object.prototype.expect = function(obj) {
+  return new SpecObject(obj)
 };
 
-Object.prototype.toEq = function(what) {
-  return this == what;
+function SpecObject(what) {
+  this.obj = what;
 };
 
-Object.prototype.toNotEq = function(what) {
-  return this != what;
+SpecObject.prototype.toEq = function(what) {
+  return this.obj == what;
 };
 
-Object.prototype.toBeTrue = function() {
-  if (this) {
-    return true;
-  } else {
-    return false;
-  };
+SpecObject.prototype.toNotEq = function(what) {
+  return this.obj != what;
 };
 
-Object.prototype.toNotBeTrue = function() {
-  if (this) {
-    return false;
-  } else {
-    return true;
-  };
+SpecObject.prototype.toBeTrue = function() {
+  return this.obj == true;
 };
 
-Object.prototype.toBeFalse = function() {
-  if (this) {
+SpecObject.prototype.toNotBeTrue = function() {
+  if (this.obj) {
     return false;
   } else {
     return true;
   };
 };
 
-Object.prototype.toNotBeFalse = function() {
-  if (this) {
+SpecObject.prototype.toBeFalse = function() {
+  if (this.obj) {
+    return false;
+  } else {
+    return true;
+  };
+};
+
+SpecObject.prototype.toNotBeFalse = function() {
+  if (this.obj) {
     return true;
   } else {
     return false;
   };
 };
 
-Object.prototype.toBeGreaterThan = function(what) {
-  return this > what;
+SpecObject.prototype.toBeGreaterThan = function(what) {
+  return this.obj > what;
 };
 
-Object.prototype.toBeLessThan = function(what) {
-  return this < what;
+SpecObject.prototype.toBeLessThan = function(what) {
+  return this.obj < what;
 };
 
-Object.prototype.toBeGreaterThanOrEqualTo = function(what) {
-  return this >= what;
+SpecObject.prototype.toBeGreaterThanOrEqualTo = function(what) {
+  return this.obj >= what;
 };
 
-Object.prototype.toBeLessThanOrEqualTo = function(what) {
-  return this <= what;
+SpecObject.prototype.toBeLessThanOrEqualTo = function(what) {
+  return this.obj <= what;
 };
 
 function range(start, stop, step) {
@@ -82,44 +82,44 @@ function range(start, stop, step) {
   };
 };
 
-Object.prototype.toBeWithin = function(start, stop) {
-  return this >= start && this <= stop;
+SpecObject.prototype.toBeWithin = function(start, stop) {
+  return this.obj >= start && this.obj <= stop;
 };
 
-Object.prototype.toInclude = function(what) {
-  return what in this;
+SpecObject.prototype.toInclude = function(what) {
+  return what in this.obj;
 };
 
-Object.prototype.toNotInclude = function(what) {
-  return !(what in this);
+SpecObject.prototype.toNotInclude = function(what) {
+  return !(what in this.obj);
 };
 
-Object.prototype.toMatch = function(what) {
-  if (this.toString().match(what) == null) {
+SpecObject.prototype.toMatch = function(what) {
+  if (this.obj.toString().match(what) == null) {
     return false;
   } else {
     return true;
   };
 };
 
-Object.prototype.toHavePrototype = function(what) {
-  return this.__proto__ == what.prototype;
+SpecObject.prototype.toHavePrototype = function(what) {
+  return this.obj.__proto__ == what.prototype;
 };
 
-Object.prototype.toNotHavePrototype = function(what) {
-  return this.__proto__ != what.prototype;
+SpecObject.prototype.toNotHavePrototype = function(what) {
+  return this.obj.__proto__ != what.prototype;
 };
 
-Object.prototype.toRespondTo = function(what) {
-  return expect(this.__proto__).toInclude(what) || expect(this.prototype).toInclude(what);
+SpecObject.prototype.toRespondTo = function(what) {
+  return expect(this.obj.__proto__).toInclude(what) || expect(this.obj.prototype).toInclude(what);
 };
 
-Object.prototype.toNotRespondTo = function(what) {
-  return expect(this.__proto__).toNotInclude(what);
+SpecObject.prototype.toNotRespondTo = function(what) {
+  return expect(this.obj.__proto__).toNotInclude(what);
 };
 
-Object.prototype.toHaveProperty = function(what) {
-  return what in this;
+SpecObject.prototype.toHaveProperty = function(what) {
+  return what in this.obj;
 };
 
 
