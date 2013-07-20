@@ -71,6 +71,15 @@ Returns true if the object fulfills an == statement:
     expect(testObject).toEq(1);
     > true
 
+#### toEql
+
+Returns true if the object fulfills an === statement (no type casting occurs)
+
+    a = 1;
+    b = "1";
+    expect(a).toNotEql(b);
+    > true
+
 #### toBeGreaterThan/toBeLessThan
 
 Returns true if the object is greater than, less than, greater than or equal to, or less than or equal to:

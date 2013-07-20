@@ -17,6 +17,14 @@ SpecObject.prototype.toNotEq = function(what) {
   return this.obj != what;
 };
 
+SpecObject.prototype.toEql = function(what) {
+  return this.obj === what;
+};
+
+SpecObject.prototype.toNotEql = function(what) {
+  return (!(this.obj === what));
+};
+
 SpecObject.prototype.toBeTruthy = function() {
   if (this.obj) {
     return true;
