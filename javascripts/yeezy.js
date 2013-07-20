@@ -77,3 +77,7 @@ Object.prototype.toMatch = function(what) {
     return true;
   };
 };
+
+Object.prototype.toHavePrototype = function(what) {
+  return this.__proto__ == what.prototype;
+}
