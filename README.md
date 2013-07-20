@@ -82,12 +82,31 @@ Returns true if the object is greater than, less than, greater than or equal to,
     expect(testObject).toBeLessThan(0);
     > false
 
+#### toBeWithin
+
+Returns true if in range:
+
+  testObject = 5;
+  expect(testObject).toBeWithin(1, 10);
+  > true
+
 #### toBeTrue/toBeFalse
 
 Evaluates an object's truthiness. This evaluation does not necessarily mean the object == true:
 
     testObject = 1;
     expect(testObject).toBeTrue();
+    > true
+
+    testObject = 2;
+    expect(testObject).toBeTrue();
+    > true
+
+    testObject = 0;
+    expect(testObject).toBeFalse();
+    > true
+
+    expect("apple").toBeTrue();
     > true
 
 

@@ -1,11 +1,14 @@
+// Spec object constructor
+function SpecObject(obj) {
+  this.obj = obj;
+};
+
+// Expect calls constructor
 Object.prototype.expect = function(obj) {
   return new SpecObject(obj)
 };
 
-function SpecObject(what) {
-  this.obj = what;
-};
-
+// All methods hook onto the SpecObject prototype
 SpecObject.prototype.toEq = function(what) {
   return this.obj == what;
 };
@@ -15,7 +18,11 @@ SpecObject.prototype.toNotEq = function(what) {
 };
 
 SpecObject.prototype.toBeTrue = function() {
-  return this.obj == true;
+  if (this.obj) {
+    return true;
+  } else {
+    return false;
+  };
 };
 
 SpecObject.prototype.toNotBeTrue = function() {
@@ -56,30 +63,6 @@ SpecObject.prototype.toBeGreaterThanOrEqualTo = function(what) {
 
 SpecObject.prototype.toBeLessThanOrEqualTo = function(what) {
   return this.obj <= what;
-};
-
-function range(start, stop, step) {
-  if (stop == undefined) {
-    stop = 0;
-  };
-  if (step === undefined) {
-    step = 1;
-  };
-  if (start == undefined) {
-    throw "Needs at least one argument";
-  } else if (stop == 0) {
-    return_array = [];
-    for (i = 1; i <= start; i++) {
-      return_array.push(i);
-    };
-    return return_array
-  } else if (stop != 0) {
-    return_array = [];
-    for(i = start; i <= stop; i += step) {
-      return_array.push(i);
-    };
-    return return_array;
-  };
 };
 
 SpecObject.prototype.toBeWithin = function(start, stop) {
