@@ -69,3 +69,11 @@ Object.prototype.toBeWithin = function(start, stop) {
 Object.prototype.toInclude = function(what) {
   return what in this;
 };
+
+Object.prototype.toMatch = function(what) {
+  if (this.match(what) == null) {
+    return false;
+  } else {
+    return true;
+  };
+};
