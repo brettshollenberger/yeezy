@@ -1,15 +1,22 @@
 // Spec object constructor
 function SpecObject(obj) {
   this.obj = obj;
+  this.logged = "";
 };
 
 // Expect calls constructor
 Object.prototype.expect = function(obj) {
-  return new SpecObject(obj)
+  return new SpecObject(obj);
+};
+
+SpecObject.prototype.expectation = function(expectation, what) {
+  this.logged = "Expected " + expectation + " " + what;
+  return this.logged
 };
 
 // All methods hook onto the SpecObject prototype
 SpecObject.prototype.toEq = function(what) {
+  this.expectation("to equal", what);
   return this.obj == what;
 };
 
