@@ -117,3 +117,11 @@ SpecObject.prototype.toNotHaveProperty = function(what) {
   return (!(what in this.obj));
 };
 
+SpecObject.prototype.toBeTypeOf = function(what) {
+  return expect(typeof(this)).toEq(what.toLowerCase());
+};
+
+SpecObject.prototype.toNotBeTypeOf = function(what) {
+  return expect(typeof(this)).toNotEq(what.toLowerCase());
+};
+

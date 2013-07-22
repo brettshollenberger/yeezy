@@ -48,6 +48,17 @@ Returns true if the object has a given prototype:
     expect(testObject).toHavePrototype(Object);
     > false // Primitive datatypes are not of type Object
 
+#### toBeTypeOf
+
+Returns true if the element is a given type:
+
+    testObject = {};
+    expect(testObject).toBeTypeOf("object");
+    > true
+
+    expect(testObject).toNotBeTypeOf("undefined");
+    > true
+
 #### toMatch
 
 Returns true if the object matches a given regular expression:
