@@ -116,7 +116,7 @@ Evaluates an object's truthiness. This evaluation does not necessarily mean the 
     > true
 
     testObject = 0;
-    expect(testObject).toBeFalse();
+    expect(testObject).toBeFalsy();
     > true
 
     expect("apple").toBeTruthy();
